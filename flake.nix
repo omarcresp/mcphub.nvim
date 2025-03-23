@@ -19,9 +19,10 @@
           name = "mcphub.nvim";
           src = self;
           nvimSkipModule = [
-            "mcphub.hub"
-            "mcphub.extensions.codecompanion"
             "mcphub"
+            "mcphub.hub"
+            "bundled_build"
+            "mcphub.extensions.codecompanion"
           ];
         };
       };
