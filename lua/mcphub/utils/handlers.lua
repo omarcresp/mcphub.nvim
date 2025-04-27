@@ -196,10 +196,10 @@ M.TypeHandlers = {
                                 "%s: anyOf(%s)",
                                 k,
                                 vim.iter(v.anyOf)
-                                    :map(function(item)
-                                        return vim.inspect(item.type or "unknown")
-                                    end)
-                                    :join(",")
+                                :map(function(item)
+                                    return vim.inspect(item.type or "unknown")
+                                end)
+                                :join(",")
                             )
                         )
                     else
@@ -358,6 +358,8 @@ M.ResponseHandlers = {
         if not response then
             return nil, Error("SERVER", Error.Types.SERVER.API_ERROR, "Empty response from server", context)
         end
+
+        print(vim.inspect(context))
 
         local ok, decoded = pcall(vim.fn.json_decode, response)
         if not ok then
